@@ -150,6 +150,8 @@ router.get('/getonemember/:id', async function(req,res){
     res.json({results});
     })
 
+//SHOW THIS ONE!//
+//++++++++++++++++++++++++++++++++++++++++++++++++
 // GROUP MEMBERS FIND ALL
 //=============================================
 router.get('/findmembers/:id', async function(req,res){

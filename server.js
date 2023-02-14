@@ -6,10 +6,17 @@ const cors = require ('cors')
 app.use(express.json());
 app.use(express.urlencoded({extended:false }));
 app.use (
-    cors({
-        origin: 'http://localhost:3000',
-        credentials: true
-    })
+    cors(
+        {
+            origin: '*',
+            methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+            preflightContinue: false,
+            optionsSuccessStatus: 204,
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Headers':
+                'Origin, X-Requested-With, Content-Type, Accept',
+        }
+    )
 )
 //is pointing to user route
 app.use("/users",require("./routes/users"))
