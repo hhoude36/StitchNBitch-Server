@@ -89,7 +89,7 @@ Sign-In or Sign-Up
 ## Triumphs
 - The ability to upload and update a Profile, Group, or Project image.
 - Successfully communication between team members to ensure smooth merges.
-- Applied the knowledge form the sixteen(16)-week DigitalCrafts Bootcamp.
+- Applied the knowledge from the sixteen(16)-week DigitalCrafts Bootcamp.
 - Built the back end with our stretch goals in mind so we can continue to add functionalities. 
 
 ## Capstone Project Credits Go To The Following Builders
