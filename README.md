@@ -94,8 +94,8 @@ Sign-In or Sign-Up
 
 ## Capstone Project Credits Go To The Following Builders
  
-- Full-Stack Developer:[Betty-Lee Carter](https://github.com/hhoude36) Ideation, Front-End, Back-End, Deployment, ReadMe-files. Responsible for the Profile and Project functionalities. 
-- Full-Stack Developer:[Heather Houde](https://github.com/deliflows) Back-End, Ideation, Front-End, Design-Styles Back-End. Responsible for the Group functionalities. 
+- Full-Stack Developer:[Betty Lee Carter](https://github.com/deliflows) Ideation, Front-End, Back-End, Deployment, ReadMe-files. Responsible for the Profile and Project functionalities. 
+- Full-Stack Developer:[Heather Houde](https://github.com/hhoude36) Ideation, Front-End, Back-End, Design-Styles, Deployment. Responsible for the Group functionalities. 
 
 ## Miscellaneous 
 - Git and GitHub Commits, Merges and Branching.
