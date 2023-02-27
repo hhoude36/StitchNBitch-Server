@@ -152,11 +152,11 @@ router.get('/getonemember/:id', async function(req,res){
 
 //SHOW THIS ONE!//
 //++++++++++++++++++++++++++++++++++++++++++++++++
-// GROUP MEMBERS FIND ALL
+// GROUP MEMBERS FIND ALL FOR LOGGED IN USER 
 //=============================================
 router.get('/findmembers/:id', async function(req,res){
     const {id} = req.params;
-    // console.log("I am hitting the find all groups members call");
+    console.log("I am hitting the find all groups for one member");
     let memberResults = await groupmembers.findAll({
             where:{
                  userid: id
@@ -164,14 +164,22 @@ router.get('/findmembers/:id', async function(req,res){
             include: groups
         }, )
         
-    // console.log(memberResults);
     res.json(memberResults); 
 });
 
-
-// GROUP MEMBERS EDIT
+// GROUP MEMBERS FIND ALL FOR PARTICULAR GROUP 
 //=============================================
-
+router.get('/findgroupmembers/:groupid', async function(req,res){
+    const {groupid} = req.params;
+    console.log("I am hitting the find all groups members for one group call");
+    let groupMemberResults = await groupmembers.findAll({
+            where:{
+                 groupid: groupid,
+            }
+            //need to find a way to include users with and pull userid  in. users is undefined maybe because they are in separate files?
+        },)
+    res.json(groupMemberResults); 
+});
 
 // GROUP MEMBERS DELETE
 //=============================================
