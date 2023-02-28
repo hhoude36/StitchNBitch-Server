@@ -31,6 +31,21 @@ router.post('/creategroup', async function(req,res){
     res.json({results})
 })
 
+// GROUP MEMBERS FIND ALL ADMIN FOR LOGGED IN USER 
+//=============================================
+router.get('/admin/:id', async function(req,res){
+    const {id} = req.params;
+    console.log("I am back end the find all admin groups for one member");
+    let adminResults = await groups.findAll({
+            where:{
+                 adminid: id
+            },
+        }, )
+        
+    res.json(adminResults); 
+    console.log(adminResults)
+});
+
 
 //GROUPS READ ONE
 //=============================================
@@ -145,13 +160,13 @@ router.post('/addgroupmember', async function(req,res){
 //=============================================
 router.get('/getonemember/:id', async function(req,res){
     console.log("We are hitting read one group")
-    let {id} = req.params;
+    const {id} = req.params;
     let results = await groupmembers.findByPk(id);
     res.json({results});
     })
 
-//SHOW THIS ONE!//
-//++++++++++++++++++++++++++++++++++++++++++++++++
+
+
 // GROUP MEMBERS FIND ALL FOR LOGGED IN USER 
 //=============================================
 router.get('/findmembers/:id', async function(req,res){
