@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router()
-const{groups, groupmembers} = require('../models')
+const{groups, groupmembers, users} = require('../models')
 
 router.get("/", (req,res) => {
     res.json({msg:"Hello from the groups route"})
@@ -208,9 +208,10 @@ router.get('/findgroupmembers/:groupid', async function(req,res){
     let groupMemberResults = await groupmembers.findAll({
             where:{
                  groupid: groupid,
-            }
+            },
+            include: users
+        }, )
             //need to find a way to include users with and pull userid  in. users is undefined maybe because they are in separate files?
-        },)
     res.json(groupMemberResults); 
 });
 
