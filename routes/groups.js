@@ -100,6 +100,24 @@ router.post('/editgroup/:id', async function(req, res){
     })
     res.json({results});
 })
+
+//GROUPS EDIT
+//=============================================
+router.post('/editphoto/:id', async function(req, res){
+    console.log("We are hitting edit group photo")
+    const { id } = req.params;
+    const{imagename} = req.body;
+    let results = await groups.update({
+        imagename: imagename,
+        updatedAt: new Date(),
+        },{
+        where:{
+            id
+        }
+    })
+    res.json({results});
+})
+
 // GROUPS DELETE
 //=============================================
 router.get('/deletegroup/:id', async function(req, res){
