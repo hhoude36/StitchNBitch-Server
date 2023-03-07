@@ -7,30 +7,7 @@ router.get("/", (req, res) => {
   res.json({ msg: "Hello from the users route" });
 });
 
-//checking auth for passwords
-//============================================
-// function checkAuth(req, res, next) {
-//     // if there is user info in the session, continue
-//    //????????? req.session???
-//     if (req.session.user) {
-//       next();
-//     // or if the user is accessing the login page, same
-//     } else if (req.path == '/login') {
-//       next();
-//     // otherwise, redirect to login page
-//     }
-//     else if (req.path == '/register') {
-//         next();
-//     } else {
-//       res.redirect('/login');
-//     }
-//   }
 
-//registration page
-//============================================
-// app.get('/register', async function(req, res){
-//     res.render("register")
-// })
 
 router.post("/register", async function (req, res) {
   const { name, username, email, password, imagename } = req.body;
@@ -108,14 +85,14 @@ router.post("/login", async function (req, res) {
 //     res.json({results})
 // })
 
-// //USER READ ONE
-// //=============================================
-// router.get('/getone/:id', async function(req,res){
-//     console.log("We are hitting read one user")
-//     let {id} = req.params;
-//     let results = await users.findByPk(id);
-//     res.json({results});
-//     })
+//USER FIND ADMIN FOR PARTICULAR GROUP
+//=============================================
+router.get('/getone/:id', async function(req,res){
+    console.log("We are hitting find admin for particular group")
+    let {id} = req.params;
+    let results = await users.findByPk(id);
+    res.json({results});
+    })
 
 //USER READ ALL
 //=============================================
@@ -124,6 +101,7 @@ router.post("/login", async function (req, res) {
 //     let results = await users.findAll();
 //     res.json({results});
 // })
+
 // //USER EDIT
 // //=============================================
 router.post('/edit/:id', async function(req, res){
