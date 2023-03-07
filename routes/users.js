@@ -87,7 +87,7 @@ router.post("/login", async function (req, res) {
 
 //USER FIND ADMIN FOR PARTICULAR GROUP
 //=============================================
-router.get('/getone/:id', async function(req,res){
+router.get('/getadmin/:id', async function(req,res){
     console.log("We are hitting find admin for particular group")
     let {id} = req.params;
     let results = await users.findByPk(id);
