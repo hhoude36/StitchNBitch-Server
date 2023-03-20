@@ -62,28 +62,16 @@ router.post("/login", async function (req, res) {
   }
 });
 
-// //USER CREATE
-// //=============================================
-// router.post('/createuser', async function(req,res){
-//     console.log("We are hitting create user")
-//     const{username, email, password, interests, city, state, usertype, about, imagetype, imagename, imagedata} = req.body;
-//     let results = await users.create({
-//         username: username,
-//         email: email,
-//         password: password,
-//         interests: interests,
-//         city: city,
-//         state: state,
-//         usertype: usertype,
-//         about: about,
-//         imagetype: imagetype,
-//         imagename: imagename,
-//         imagedata: imagedata,
-//         createdAt: new Date(),
-//         updatedAt: new Date(),
-//     })
-//     res.json({results})
-// })
+
+//GROUPS READ ONE
+//=============================================
+router.get('/getoneuser/:id', async function(req,res){
+  console.log("We are hitting read one user")
+  let {id} = req.params;
+  let results = await users.findByPk(id);
+  res.json({results});
+  })
+
 
 //USER FIND ADMIN FOR PARTICULAR GROUP
 //=============================================

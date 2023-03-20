@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router()
-const{projects} = require('../models')
+const{projects, ProjectComments} = require('../models')
 
 router.get("/", (req,res) => {
     res.json({msg:"Hello from the projects route"})
@@ -27,6 +27,21 @@ router.post('/createproject', async function(req,res){
     res.json({results})
 })
 
+//COMMENTS CREATE
+//=============================================
+router.post('/addcomment', async function(req,res){
+    console.log("We are hitting add coment")
+    const{ userid, projectid, message, like, saved} = req.body;
+    let results = await projects.create({
+        userid: userid, 
+        projectid: projectid,
+        message: message,
+        like : like,
+        save: saved,
+        createdAt: new Date(),
+    })
+    res.json({results})
+})
 
 //PROJECTS READ ONE
 //=============================================
