@@ -36,8 +36,8 @@ router.post('/addcomment', async function(req,res){
         userid: userid, 
         projectid: projectid,
         message: message,
-        like : like,
-        save: saved,
+        like : true,
+        save: true,
         createdAt: new Date(),
     })
     res.json({results})
