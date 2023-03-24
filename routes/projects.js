@@ -31,7 +31,7 @@ router.post('/createproject', async function(req,res){
 //=============================================
 router.post('/addcomment', async function(req,res){
     console.log("We are hitting add coment")
-    const{ userid, projectid, message} = req.body;
+    const{ userid, projectid, message, like, saved} = req.body;
     let results = await ProjectComments.create({
         userid: userid, 
         projectid: projectid,
