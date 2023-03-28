@@ -6,11 +6,14 @@ router.get("/", (req,res) => {
     res.json({msg:"Hello from the projects route"})
 });
 
+
+
 //PROJECTS CREATE
 //=============================================
 router.post('/createproject', async function(req,res){
     console.log("We are hitting create project")
     const{ userid, name, type, progress, startdate, enddate, giftedto, notes} = req.body;
+    
     let results = await projects.create({
         userid: userid, 
         name: name,
@@ -30,15 +33,24 @@ router.post('/createproject', async function(req,res){
 //COMMENTS CREATE
 //=============================================
 router.post('/addcomment', async function(req,res){
-    console.log("We are hitting add coment")
+    console.log("We are hitting add comment")
     const{ userid, projectid, message, like, saved} = req.body;
+    try {
+    const{ userid, name, type, progress, startdate, enddate, giftedto, notes} = req.body;
+    console.log(req.body);
+  } 
+  catch (err) {
+    console.log('Oh boy, an error');
+  }
+    
+    
     let results = await ProjectComments.create({
         userid: userid, 
         projectid: projectid,
         message: message,
         like : like,
         saved: saved,
-        createdAt: new Date(),
+        // createdAt: new Date(),
         // updatedAt: new Date(),
     })
     console.log(results)
