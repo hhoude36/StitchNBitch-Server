@@ -34,12 +34,9 @@ router.post('/createproject', async function(req,res){
 //=============================================
 router.post('/addcomment', async function(req,res){
     console.log("We are hitting add comment")
-    try{   const{ userid, projectid, message, like, saved} = req.body;
-    console.log(req.body);}
-    catch (err){
-        console.log("woops")
-    }
-    
+    const{ userid, projectid, message, like, saved} = req.body;
+    console.log(req.body);
+
     let results = await ProjectComments.create({
         userid: userid, 
         projectid: projectid,
@@ -48,19 +45,22 @@ router.post('/addcomment', async function(req,res){
         saved: saved,
         created_at: new Date(),
         // updatedAt: new Date(),
+
     })
-    console.log(results)
     res.json({results})
+ 
 })
 
-//PROJECTS READ ONE
-//=============================================
-// router.get('/getone/:id', async function(req,res){
-//     console.log("We are hitting read one project")
-//     let {id} = req.params;
-//     let results = await projects.findByPk(id);
-//     res.json({results});
-//     })
+// COMMENTS READ ONE
+// =============================================
+router.get('/getonecomment/:id', async function(req,res){
+    console.log("we are trying to get one")
+    console.log("We are hitting read one project")
+    let {id} = req.params;
+    let results = await ProjectComments.findByPk(id);
+    res.json({results});
+    })
+
 
 // //PROJECTS READ ALL
 // //=============================================

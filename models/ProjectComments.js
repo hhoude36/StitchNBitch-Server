@@ -10,6 +10,11 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
+      ProjectComments.belongsTo(models.users,{
+        foreignKey: 'userid',
+        onDelete:'CASCADE'
+      }),
+      
       ProjectComments.belongsTo(models.projects,{
         foreignKey: 'projectid',
         onDelete:'CASCADE'
@@ -25,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
   
   }, {
     sequelize,
-    modelName: 'ProjectComments',
+    modelName: 'projectcomment',
   });
   return ProjectComments;
 };

@@ -178,8 +178,11 @@ router.post('/addgroupmember', async function(req,res){
 //=============================================
 router.get('/getonemember/:id', async function(req,res){
     console.log("We are hitting read one group")
+    console.log(req.params)
     const {id} = req.params;
     let results = await groupmembers.findByPk(id);
+    console.log(results)
+
     res.json({results});
     })
 

@@ -26,22 +26,6 @@ app.use("/projects",require("./routes/projects"))
 
 app.listen(portNumber, function(req, res)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 {
     console.log(`Listening on port ${portNumber}`);
 })
