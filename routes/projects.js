@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router()
-const{projects, ProjectComments} = require('../models')
+//addproject comments here
+const{projects, projectcomments} = require('../models')
 
 router.get("/", (req,res) => {
     res.json({msg:"Hello from the projects route"})
@@ -32,43 +33,38 @@ router.post('/createproject', async function(req,res){
 
 //COMMENTS CREATE
 //=============================================
-router.post('/addcomment', async function(req,res){
+router.post('/newcomment', async function(req,res){
     console.log("We are hitting add comment")
-    const{ userid, projectid, message, like, saved} = req.body;
-    console.log(req.body);
+    const{ userid, projectid, message} = req.body;
 
-    let results = await ProjectComments.create({
+    let results = await projectcomments.create({
         userid: userid, 
         projectid: projectid,
         message: message,
-        like : like,
-        saved: saved,
+        like : false,
+        saved: false,
         created_at: new Date(),
-        // updatedAt: new Date(),
-
+        updatedAt: new Date()
     })
     res.json({results})
- 
 })
+
 
 // COMMENTS READ ONE
 // =============================================
-router.get('/getonecomment/:id', async function(req,res){
+router.get('/getallcomments/:id', async function(req,res){
     console.log("we are trying to get one")
     console.log("We are hitting read one project")
     let {id} = req.params;
-    let results = await ProjectComments.findByPk(id);
+    let results = await projectcomments.findAll({
+        where:{
+             projectid: id
+        }
+    })
     res.json({results});
     })
 
 
-// //PROJECTS READ ALL
-// //=============================================
-// router.get('/findall', async function(req,res){
-//     console.log("I am hitting the find all projects call")
-//     let results = await projects.findAll();
-//     res.json({results}); 
-// })
 //PROJECTS READ ALL BY USER ID
 //=============================================
 router.get('/findall/:id', async function(req,res){

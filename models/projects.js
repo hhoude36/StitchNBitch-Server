@@ -14,6 +14,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'userid',
         onDelete:'CASCADE'
       })
+      projects.hasMany(models.projectcomments,{
+        foreignKey: 'projectid'
+      })
     }
   }
   projects.init({

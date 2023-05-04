@@ -28,6 +28,9 @@ module.exports = (sequelize, DataTypes) => {
       users.hasMany(models.groupchat,{
         foreignKey: 'userid'
       })
+      users.hasMany(models.projectcomments,{
+        foreignKey: 'userid'
+      })
     }
   }
   users.init({
